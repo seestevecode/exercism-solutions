@@ -3,4 +3,4 @@
 (defn egg-count
   "Returns the number of 1 bits in the binary representation of the given number."
   [num]
-  (if (zero? num) 0 (+ (if (zero? (mod num 2)) 0 1) (egg-count (quot num 2)))))
+  (loop [n num ones 0] (if (zero? n) ones (recur (quot n 2) (+ ones (mod n 2))))))
