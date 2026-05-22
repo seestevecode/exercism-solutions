@@ -8,4 +8,4 @@
 (defn total
   "Returns the total number of grains on the chessboard."
   []
-  (reduce + (map square (range 1 65))))
+  (dec (square 65)))
