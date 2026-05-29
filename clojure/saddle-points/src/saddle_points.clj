@@ -10,6 +10,5 @@
       (into #{}
             (for [row (range (count matrix))
                   col (range (count (first matrix)))
-                  :let [target (get-in matrix [row col])]
-                  :when (and (= target (row-maxes row)) (= target (col-mins col)))]
+                  :when (= (get-in matrix [row col]) (row-maxes row) (col-mins col))]
             [(inc row) (inc col)])))))
