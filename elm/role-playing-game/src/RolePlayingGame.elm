@@ -11,11 +11,7 @@ type alias Player =
 
 introduce : Player -> String
 introduce { name } =
-    case name of
-        Just n ->
-            n
-        Nothing ->
-            "Mighty Magician"
+    Maybe.withDefault "Mighty Magician" name
 
 
 revive : Player -> Maybe Player
