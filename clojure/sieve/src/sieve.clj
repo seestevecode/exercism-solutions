@@ -3,9 +3,9 @@
 (defn sieve
   "Returns the primes that are less than or equal to num."
   [num]
-  (loop [remaining (set (range 2 (inc num))) primes #{}]
-    (if (empty? remaining) (sort primes)
-      (let [next-prime (apply min remaining)]
-        (recur
-         (set/difference remaining (set (range next-prime (inc num) next-prime)))
-         (conj primes next-prime))))))
+  (let [limit (Math/sqrt num)]
+    (loop [n 2 composites #{}]
+      (cond
+        (> n limit) (remove composites (range 2 (inc num)))
+        (composites n) (recur (inc n) composites)
+        :else (recur (inc n) (into composites (range (* n n) (inc num) n)))))))
