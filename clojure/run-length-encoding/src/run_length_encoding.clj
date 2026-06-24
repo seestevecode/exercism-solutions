@@ -1,4 +1,4 @@
-(ns run-length-encoding (:require [clojure.string :as str]))
+(ns run-length-encoding)
 
 (defn run-length-encode
   "Encodes a string with run-length encoding."
@@ -6,8 +6,8 @@
   (->>
     plaintext
     (partition-by identity)
-    (map #(str (if (= 1 (count %)) "" (count %)) (first %)))
-    (str/join)))
+    (mapcat #(str (if (= 1 (count %)) "" (count %)) (first %)))
+    (apply str)))
 
 (defn run-length-decode
   "Decodes a run-length-encoded string."
@@ -15,5 +15,5 @@
   (->> 
     ciphertext
     (re-seq #"(\d*)(\D)")
-    (mapcat (fn [[_ n ch]] (repeat (if (str/blank? n) 1 (parse-long n)) ch)))
-    (str/join)))
+    (mapcat (fn [[_ n ch]] (repeat (or (parse-long n) 1) ch)))
+    (apply str)))
