@@ -12,9 +12,12 @@
   "Given a vector of vectors, it combines all the vectors into one flattened
   vector."
   [colls]
-  (loop [remaining colls acc []]
-    (if (empty? remaining) acc
-      (recur (rest remaining) (append acc (first remaining))))))
+  (loop [outer colls inner [] acc []]
+    (if (empty? inner)
+      (if (empty? outer) 
+        acc 
+        (recur (rest outer) (first outer) acc))
+      (recur outer (rest inner) (conj acc (first inner))))))
 
 (defn select-if
   "Given a predicate and a vector, it returns the vector of all items for
