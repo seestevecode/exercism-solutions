@@ -21,7 +21,7 @@ defmodule PaintByNumber do
   defp split_picture(<<>>, _color_count), do: {nil, ""}
   defp split_picture(picture, color_count) do
     bit_size = palette_bit_size(color_count)
-    <<pixel::size(bit_size), rest::bitstring>> = picture
+    <<pixel::size(^bit_size), rest::bitstring>> = picture
     {pixel, rest}
   end
 
