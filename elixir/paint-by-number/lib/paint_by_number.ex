@@ -1,8 +1,9 @@
 defmodule PaintByNumber do
   def palette_bit_size(color_count), do: get_bit_size(color_count, 1)
 
-  defp get_bit_size(color_count, count), do:
+  defp get_bit_size(color_count, count) do
     if 2 ** count >= color_count, do: count, else: get_bit_size(color_count, count + 1)
+  end
 
   def empty_picture(), do: <<>>
 
