@@ -13,7 +13,8 @@ defmodule RPNCalculator do
     try do
       {:ok, operation.(stack)}
     rescue
-      e -> {:error, Exception.message(e)}
+      error -> %{message: message} = error
+      {:error, message}
     end
   end
 end
