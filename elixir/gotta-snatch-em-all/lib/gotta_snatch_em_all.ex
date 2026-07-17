@@ -15,7 +15,7 @@ defmodule GottaSnatchEmAll do
      collection |> MapSet.put(their_card) |> MapSet.delete(your_card)}
 
   @spec remove_duplicates([card()]) :: [card()]
-  def remove_duplicates(cards), do: MapSet.new(cards) |> MapSet.to_list()
+  def remove_duplicates(cards), do: MapSet.new(cards) |> MapSet.to_list() |> Enum.sort()
 
   @spec extra_cards(collection(), collection()) :: non_neg_integer()
   def extra_cards(your_collection, their_collection), do:
