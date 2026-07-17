@@ -1,4 +1,8 @@
 defmodule TwoFer do
+@moduledoc """
+Implementation of Exercism's TwoFer puzzle in Elixir.
+"""
+
   @doc """
   Two-fer or 2-fer is short for two for one. One for you and one for me.
   """
