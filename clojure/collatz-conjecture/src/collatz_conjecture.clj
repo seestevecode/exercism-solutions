@@ -4,7 +4,7 @@
   "Returns the number of steps for num to reach 1
   according to the Collatz Conjecture."
   [num]
-  (loop [steps 0 n num]
-    (if (= 1 n) 
-      steps 
-      (recur (inc steps) (if (even? n) (quot n 2) (inc (* 3 n)))))))
+  (cond
+    (= 1 num) 0
+    (even? num) (inc (collatz (quot num 2)))
+    :else (inc (collatz (inc (* 3 num))))))
