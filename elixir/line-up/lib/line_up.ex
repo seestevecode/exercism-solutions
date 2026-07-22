@@ -4,14 +4,11 @@ defmodule LineUp do
   the person's name, the ordinal form of the number, and fixed descriptive text.
   """
   @spec format(name :: String.t(), number :: pos_integer()) :: String.t()
-  def format(name, number) do
-    ordinal_suffix =
-      cond do
-        rem(number, 10) == 1 and rem(number, 100) != 11 -> "st"
-        rem(number, 10) == 2 and rem(number, 100) != 12 -> "nd"
-        rem(number, 10) == 3 and rem(number, 100) != 13 -> "rd"
-        true -> "th"
-      end
-    "#{name}, you are the #{number}#{ordinal_suffix} customer we serve today. Thank you!"
-  end
+  def format(name, number), do:
+    "#{name}, you are the #{number}#{ordinal(number)} customer we serve today. Thank you!"
+
+  defp ordinal(n) when rem(n, 10) == 1 and rem(n, 100) != 11, do: "st"
+  defp ordinal(n) when rem(n, 10) == 2 and rem(n, 100) != 12, do: "nd"
+  defp ordinal(n) when rem(n, 10) == 3 and rem(n, 100) != 13, do: "rd"
+  defp ordinal(_), do: "th"
 end
