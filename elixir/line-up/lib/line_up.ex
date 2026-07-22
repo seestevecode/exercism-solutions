@@ -5,12 +5,11 @@ defmodule LineUp do
   """
   @spec format(name :: String.t(), number :: pos_integer()) :: String.t()
   def format(name, number) do
-    numstr = to_string(number)
     ordinal_suffix =
       cond do
-        String.ends_with?(numstr, "1") and not String.ends_with?(numstr, "11") -> "st"
-        String.ends_with?(numstr, "2") and not String.ends_with?(numstr, "12") -> "nd"
-        String.ends_with?(numstr, "3") and not String.ends_with?(numstr, "13") -> "rd"
+        rem(number, 10) == 1 and rem(number, 100) != 11 -> "st"
+        rem(number, 10) == 2 and rem(number, 100) != 12 -> "nd"
+        rem(number, 10) == 3 and rem(number, 100) != 13 -> "rd"
         true -> "th"
       end
     "#{name}, you are the #{number}#{ordinal_suffix} customer we serve today. Thank you!"
