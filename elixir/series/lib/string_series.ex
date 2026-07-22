@@ -5,10 +5,10 @@ defmodule StringSeries do
   return an empty list.
   """
   @spec slices(s :: String.t(), size :: integer) :: list(String.t())
-  def slices(_s, size) when size <= 0, do: []
+  def slices(s, size) when size < 1 or size > length(s), do: []
   def slices(s, size), do:
     s 
-    |> String.to_charlist() 
-    |> Enum.chunk_every(size, 1, :discard) 
-    |> Enum.map(&to_string/1)
+    |> String.graphemes() 
+    |> Enum.chunk_every(size, 1, :discard)
+    |> Enum.map(&Enum.join/1)
 end
