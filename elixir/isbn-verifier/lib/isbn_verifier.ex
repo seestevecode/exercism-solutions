@@ -21,6 +21,6 @@ defmodule IsbnVerifier do
       |> Enum.with_index(fn value, index -> value * (10 - index) end)
       |> Enum.sum()
       |> rem(11)
-      |> Kernel.== 0
+      |> Kernel.==(0)
   end
 end
