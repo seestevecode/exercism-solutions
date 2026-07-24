@@ -14,16 +14,13 @@ defmodule IsbnVerifier do
   @spec isbn?(String.t()) :: boolean
   def isbn?(isbn) do
     cleaned = String.replace(isbn, "-", "")
-    if Regex.match?(~r/^\d{9}[\dX]$/, cleaned) do
-      checksum = 
-        cleaned
-        |> String.graphemes()
-        |> Enum.map(& if &1 == "X", do: 10, else: String.to_integer(&1))
-        |> Enum.with_index(fn value, index -> value * (10 - index) end)
-        |> Enum.sum()
-      rem(checksum, 11) == 0
-    else
-      :false
-    end
+    Regex.match?(~r/^\d{9}[\dX]$/, cleaned) and
+      cleaned
+      |> String.graphemes()
+      |> Enum.map(& if &1 == "X", do: 10, else: String.to_integer(&1))
+      |> Enum.with_index(fn value, index -> value * (10 - index) end)
+      |> Enum.sum()
+      |> rem(11)
+      |> Kernel.== 0
   end
 end
