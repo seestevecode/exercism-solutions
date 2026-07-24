@@ -8,8 +8,5 @@ defmodule ResistorColorDuo do
   Calculate a resistance value from two colors
   """
   @spec value(colors :: [atom]) :: integer
-  def value(colors) do
-    [tens, units | _] = Enum.map(colors, &(@bands[&1]))
-    10 * tens + units
-  end
+  def value([tens, units | _]), do: 10 * @bands[tens] + @bands[units]
 end
