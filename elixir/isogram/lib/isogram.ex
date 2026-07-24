@@ -5,6 +5,6 @@ defmodule Isogram do
   @spec isogram?(String.t()) :: boolean
   def isogram?(sentence) do
     cleaned = sentence |> String.downcase() |> String.replace(~r/[^a-z]/, "")
-    String.length(cleaned) == cleaned |> to_charlist() |> MapSet.new() |> MapSet.size()
+    String.length(cleaned) == cleaned |> String.graphemes() |> Enum.uniq() |> Enum.count()
   end
 end
