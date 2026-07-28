@@ -10,5 +10,5 @@ defmodule RnaTranscription do
     ~c"UGAC"
   """
   @spec to_rna([char]) :: [char]
-  def to_rna(dna), do: dna |> Enum.map(& @translate[&1]) |> List.to_charlist()
+  def to_rna(dna), do: Enum.map(dna, & @translate[&1])
 end
