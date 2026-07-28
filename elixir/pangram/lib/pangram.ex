@@ -14,11 +14,7 @@ defmodule Pangram do
 
   @spec pangram?(String.t()) :: boolean
   def pangram?(sentence) do
-    sentence
-    |> String.upcase()
-    |> String.replace(~r/[^A-Z]/, "")
-    |> String.to_charlist()
-    |> MapSet.new()
-    |> Kernel.==(MapSet.new(?A..?Z))
+    chars = sentence |> String.upcase() |> String.to_charlist()
+    Enum.all?(?A..?Z, &(&1 in chars))
   end
 end
