@@ -79,9 +79,9 @@ def is_blackjack(card_one, card_two):
         bool: Is the hand is a blackjack (two cards worth 21).
     """
 
-    if card_one == 'A' and card_two in ['10', 'J', 'Q', 'K']:
+    if card_one == 'A' and card_two in {'10', 'J', 'Q', 'K'}:
         return True
-    if card_two == 'A' and card_one in ['10', 'J', 'Q', 'K']:
+    if card_two == 'A' and card_one in {'10', 'J', 'Q', 'K'}:
         return True
     return False
 
