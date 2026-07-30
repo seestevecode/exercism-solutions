@@ -101,6 +101,4 @@ def sorted_names(queue):
         list: A copy of the queue in alphabetical order.
     """
 
-    new_queue = queue.copy()
-    new_queue.sort()
-    return new_queue
+    return sorted(queue)
