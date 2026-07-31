@@ -107,6 +107,4 @@ def perfect_score(student_info):
         if student[1] == 100:
             perfect = student
             break
-        else:
-            continue
     return perfect
