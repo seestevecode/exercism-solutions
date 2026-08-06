@@ -19,8 +19,8 @@ end
 defmodule DancingDots.Flicker do
   use DancingDots.Animation
 
-  @impl true
-  def handle_frame(dot, frame_number, opts) do
+  @impl DancingDots.Animation
+  def handle_frame(dot, frame_number, _opts) do
     if rem(frame_number, 4) == 0, do:  %{dot | opacity: dot.opacity / 2}, else: dot
   end
 end
@@ -28,7 +28,7 @@ end
 defmodule DancingDots.Zoom do
   use DancingDots.Animation
 
-  @impl true
+  @impl DancingDots.Animation
   def init(opts) do
     velocity = Keyword.get(opts, :velocity)
     if is_number(velocity) do
@@ -39,7 +39,7 @@ defmodule DancingDots.Zoom do
     end
   end
 
-  @impl true
+  @impl DancingDots.Animation
   def handle_frame(dot, frame_number, opts), do:
     %{dot | radius: dot.radius + (frame_number - 1) * opts[:velocity]}
 end
