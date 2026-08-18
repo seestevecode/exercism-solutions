@@ -20,9 +20,9 @@ class Alien:
 
     total_aliens_created = 0
 
-    def __init__(self, x, y):
-        self.x_coordinate = x
-        self.y_coordinate = y
+    def __init__(self, init_x, init_y):
+        self.x_coordinate = init_x
+        self.y_coordinate = init_y
         self.health = 3
         Alien.total_aliens_created += 1
 
