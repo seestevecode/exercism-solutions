@@ -41,4 +41,4 @@ class Alien:
 
 
 def new_aliens_collection(coords):
-    return [Alien(x, y) for x, y in coords]
+    return [Alien(init_x, init_y) for init_x, init_y in coords]
