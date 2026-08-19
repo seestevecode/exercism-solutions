@@ -1,3 +1,5 @@
+"""Validate candidate ISBN strings"""
+
 def is_valid(isbn):
     isbn = isbn.replace("-", "")
 
