@@ -6,5 +6,5 @@ COLORS = {
 }
 
 def value(colors):
-    tens, units, *_other = [COLORS[color] for color in colors]
+    tens, units, *_ = [COLORS[color] for color in colors]
     return 10 * tens + units
