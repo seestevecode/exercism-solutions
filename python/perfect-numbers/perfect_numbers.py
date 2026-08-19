@@ -1,3 +1,5 @@
+"""Determine if a number is perfect, abundant or deficient"""
+
 def classify(number):
     """ A perfect number equals the sum of its positive divisors.
 
