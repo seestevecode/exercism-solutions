@@ -13,8 +13,9 @@ def scalene(sides):
 
 
 def valid(sides):
-    a, b, c = sides
+    side1, side2, side3 = sides
     return (
-        a > 0 and b > 0 and c > 0 and a + b > c and a + c > b and b + c > a
+        side1 > 0 and side2 > 0 and side3 > 0 and 
+        side1 + side2 > side3 and side1 + side3 > side2 and side2 + side3 > side1
     )
     
