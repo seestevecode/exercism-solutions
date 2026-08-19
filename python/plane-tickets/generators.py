@@ -45,7 +45,7 @@ def generate_seats(number):
     for index, letter in enumerate(seat_letters):
         row = index // 4 + 1
         row = row + 1 if row >= 13 else row
-        yield(f'{row}{letter}')
+        yield f'{row}{letter}'
         
 
 def assign_seats(passengers):
