@@ -1,0 +1,8 @@
+"""Change data format of letters and their point values"""
+
+def transform(legacy_data):
+    return {
+        letter.lower(): score
+        for score, letters in legacy_data.items()
+        for letter in letters
+    }
