@@ -16,7 +16,7 @@ def resistor_label(colors):
     if len(colors) == 1:
         return '0 ohms'
 
-    hundreds = 0 # needs initiating in case it doesn't have its own band
+    hundreds, tens, units, exponent = 0, 0, 0, 0
         
     if len(colors) == 4:
         tens, units, exponent = [COLORS[color] for color in colors[:3]]
