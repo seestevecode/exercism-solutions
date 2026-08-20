@@ -18,15 +18,13 @@ def recite_verse(verse):
     if verse == 1:
         return 'This is the house that Jack built.'
 
-    result = 'This is '
+    return (
+        'This is ' + ''.join(
+            f'the {NOUN_VERBS[num][0]} that {NOUN_VERBS[num][1]} '
+            for num in range(verse, 1, -1)
+        ) + 'the house that Jack built.'
+    )
     
-    for num in range(verse, 1, -1):
-        noun, verb = NOUN_VERBS[num]
-        result += f'the {noun} that {verb} '
-        
-    result += 'the house that Jack built.'
-    return result
-        
 
 def recite(start_verse, end_verse):
     return [recite_verse(verse) for verse in range(start_verse, end_verse + 1)]
