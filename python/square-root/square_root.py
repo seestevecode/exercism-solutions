@@ -1,8 +1,8 @@
 """Estimate of integer square root"""
 
 def square_root(number):
-    L = 0
-    while (L + 1) * (L + 1) <= number:
-        L += 1
+    counter = 0
+    while (counter + 1) * (counter + 1) <= number:
+        counter += 1
 
-    return L
+    return counter
