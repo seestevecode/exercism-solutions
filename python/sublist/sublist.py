@@ -29,6 +29,9 @@ def is_sublist(list_one, list_two):
     if not list_one:
         return True
 
-    length_one, length_two = len(list_one), len(list_two)
-    chunked_two = [list_two[index:index+length_one] for index in range(length_two - length_one + 1)]
-    return list_one in chunked_two
+    length_one = len(list_one)
+    
+    return any(
+        list_two[index:index + length_one] == list_one
+        for index in range(len(list_two) - length_one + 1)
+    )
