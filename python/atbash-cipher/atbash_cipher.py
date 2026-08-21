@@ -11,4 +11,4 @@ def encode(plain_text):
 
 
 def decode(ciphered_text):
-    return ''.join(CIPHER[char] for char in ciphered_text.replace(' ', ''))
+    return ''.join(CIPHER[char] for char in ciphered_text if char.isalnum())
