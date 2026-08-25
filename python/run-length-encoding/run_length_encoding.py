@@ -14,7 +14,7 @@ def decode(string):
 
 def encode(string):
     def encode_group(letter, chars):
-        count = sum(1 for _ in chars)
+        count = sum(1 for _char in chars)
         return (str(count) if count > 1 else '') + letter
 
     return ''.join(
