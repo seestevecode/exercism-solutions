@@ -28,7 +28,7 @@ def recite_verse(verse_num):
 
     return (
         f'On the {ORDINALS[verse_num]} day of Christmas my true love gave to me: '
-        f'{", ".join(gifts)}.'
+        f"{', '.join(gifts)}."
     )
 
     
