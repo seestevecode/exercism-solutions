@@ -1,6 +1,8 @@
 """Determine whether a number is valid according to the Luhn formula"""
 
-class Luhn: # pylint: disable=too-few-public-methods
+# pylint: disable=missing-function-docstring
+
+class Luhn: # pylint: disable=too-few-public-methods,missing-class-docstring
     def __init__(self, card_num):
         self.card_num = card_num.replace(' ', '')
 
