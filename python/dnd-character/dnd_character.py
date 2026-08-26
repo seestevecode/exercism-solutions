@@ -10,7 +10,7 @@ def modifier(score):
     return (score - 10) // 2
 
 
-class Character: # pylint: disable=missing-class-docstring
+class Character: # pylint: disable=missing-class-docstring,too-few-public-methods
     def __init__(self):
         for ability in ABILITIES:
             setattr(self, ability, self.ability())
