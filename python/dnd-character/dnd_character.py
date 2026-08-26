@@ -1,3 +1,5 @@
+"""Generate a Dungeons and Dragons character"""
+
 # pylint: disable=missing-function-docstring
 
 import random
@@ -16,6 +18,7 @@ class Character: # pylint: disable=missing-class-docstring,too-few-public-method
             setattr(self, ability, self.ability())
         self.hitpoints = 10 + modifier(self.constitution)
 
-    def ability(self):
+    @staticmethod
+    def ability():
         dice = sorted(random.randint(1, 6) for _die in range(4))
         return sum(dice[1:])
