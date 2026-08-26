@@ -1,6 +1,6 @@
 """Determine whether a number is valid according to the Luhn formula"""
 
-class Luhn:
+class Luhn: # pylint: disable=too-few-public-methods
     def __init__(self, card_num):
         self.card_num = card_num.replace(' ', '')
 
