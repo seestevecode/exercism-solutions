@@ -2,7 +2,7 @@
 
 # pylint: disable=missing-function-docstring
 
-class Queen:  # pylint: disable=missing-class-docstring
+class Queen:  # pylint: disable=missing-class-docstring,too-few-public-methods
     def __init__(self, row, column):
         if row < 0:
             raise ValueError('row not positive')
