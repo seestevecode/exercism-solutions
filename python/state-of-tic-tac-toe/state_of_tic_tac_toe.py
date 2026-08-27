@@ -24,21 +24,21 @@ def diag_win(board, player):
 def gamestate(board):
     """Return the gamestate of the board, including any errors"""
     
-    os, xs, spaces = [''.join(board).count(square) for square in 'OX ']
+    o_pieces, x_pieces, spaces = [''.join(board).count(square) for square in 'OX ']
     transposed_board = transposed(board)
     x_win = row_win(board, 'X') or row_win(transposed_board, 'X') or diag_win(board, 'X')
     o_win = row_win(board, 'O') or row_win(transposed_board, 'O') or diag_win(board, 'O')
 
-    if os > xs:
+    if o_pieces > x_pieces:
         raise ValueError('Wrong turn order: O started')
 
-    if xs - os > 1:
+    if x_pieces - o_pieces > 1:
         raise ValueError('Wrong turn order: X went twice')
     
-    if (
+    if (  # pylint: disable=too-many-boolean-expressions
         (x_win and o_win)  # both have won
-        or (x_win and xs == os)  # O has moved after X won
-        or (o_win and xs > os)  # X has moved after O won
+        or (x_win and x_pieces == o_pieces)  # O has moved after X won
+        or (o_win and x_pieces > o_pieces)  # X has moved after O won
     ):
         raise ValueError('Impossible board: game should have ended after the game was won')
 
