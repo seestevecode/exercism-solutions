@@ -2,7 +2,7 @@
 
 # pylint: disable=missing-function-docstring
 
-class School:  # pylint disable=missing-class-docstring
+class School:  # pylint: disable=missing-class-docstring
     def __init__(self):
         self._grades = {}
         self.add_list = []
