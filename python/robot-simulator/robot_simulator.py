@@ -9,7 +9,7 @@ SOUTH = 180
 
 ADVANCES = {NORTH: (0, 1), EAST: (1, 0), SOUTH: (0, -1), WEST: (-1, 0)}
 
-class Robot:
+class Robot:  # pylint: disable=too-few-public-methods,missing-class-docstring
     def __init__(self, direction=NORTH, x_pos=0, y_pos=0):
         self.coordinates = (x_pos, y_pos)
         self.direction = direction
