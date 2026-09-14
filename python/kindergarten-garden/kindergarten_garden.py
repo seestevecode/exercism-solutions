@@ -10,7 +10,7 @@ DEFAULT_STUDENTS = (
 PLANTS = {'G': 'Grass', 'C': 'Clover', 'R': 'Radishes', 'V': 'Violets'}
 
 
-class Garden:  # pylint: disable=missing-class-docstring
+class Garden:  # pylint: disable=missing-class-docstring,too-few-public-methods
     def __init__(self, diagram, students=DEFAULT_STUDENTS):
         self._garden = diagram.split('\n')
         self._students = sorted(students)
