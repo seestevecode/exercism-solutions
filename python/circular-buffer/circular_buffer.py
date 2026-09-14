@@ -22,13 +22,13 @@ class BufferEmptyException(BufferError):
         self.message = message
 
 
-class CircularBuffer:
+class CircularBuffer:  # pylint: disable=missing-class-docstring
     def __init__(self, capacity):
         self.buffer = []
         self.capacity = capacity
 
     def read(self):
-        if self.buffer == []:
+        if not self.buffer:
             raise BufferEmptyException("Circular buffer is empty")
         else:
             return self.buffer.pop(0)
