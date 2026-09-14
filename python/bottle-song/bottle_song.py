@@ -15,7 +15,7 @@ def recite_verse(num):
     return [
         f'{NUMBERS[num]} green bottle{plural(num)} hanging on the wall,'.capitalize(),
         f'{NUMBERS[num]} green bottle{plural(num)} hanging on the wall,'.capitalize(),
-        f'And if one green bottle should accidentally fall,',
+        'And if one green bottle should accidentally fall,',
         f"There'll be {NUMBERS[num - 1]} green bottle{plural(num - 1)} hanging on the wall."
     ]
 
