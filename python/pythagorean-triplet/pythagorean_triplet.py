@@ -1,6 +1,6 @@
 """Find all Pythagorean Triplets adding up to a specified number"""
 
-# pylint: disable=missing-function-docstring
+# pylint: disable=missing-function-docstring,disallowed-name
 
 def is_triplet(a, b, c):
     return a**2 + b**2 == c**2 and a < b < c
