@@ -30,8 +30,8 @@ class CircularBuffer:  # pylint: disable=missing-class-docstring
     def read(self):
         if not self.buffer:
             raise BufferEmptyException("Circular buffer is empty")
-        else:
-            return self.buffer.pop(0)
+            
+        return self.buffer.pop(0)
 
     def write(self, data):
         if len(self.buffer) < self.capacity:
