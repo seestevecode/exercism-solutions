@@ -19,12 +19,11 @@ def recite_verse(num):
         f"There'll be {NUMBERS[num - 1]} green bottle{plural(num - 1)} hanging on the wall."
     ]
 
-def recite(start, take=1):
-    result = []
-    
-    for index, verse in enumerate(range(start, start - take, -1)):
-        result.extend(recite_verse(verse))
-        if index < take - 1:
-            result.append('')
 
-    return result
+def recite(start, take=1):
+    verses = [recite_verse(verse) for verse in range(start, start - take, -1)]
+    return [
+        line
+        for verse_idx, verse in enumerate(verses)
+        for line in verse + ([''] if verse_idx < len(verses) - 1 else [])
+    ]  
