@@ -13,8 +13,8 @@ class Allergies:  # pylint: disable=missing-class-docstring
         self.score = score
 
     def allergic_to(self, item):
-        return (self.score & ALLERGIES[item]) > 0
+        return self.score & ALLERGIES[item] != 0
 
     @property
     def lst(self):
-        return [allergen for allergen in ALLERGIES if Allergies.allergic_to(self, allergen)]
+        return [allergen for allergen in ALLERGIES if self.allergic_to(allergen)]
