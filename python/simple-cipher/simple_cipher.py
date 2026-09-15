@@ -8,7 +8,7 @@ ALPHABET = 'abcdefghijklmnopqrstuvwxyz'
 
 class Cipher:  # pylint: disable=missing-class-docstring
     def __init__(self, key=None):
-        self.key = key or ''.join(secrets.choice(ALPHABET) for _ in range(100))
+        self.key = key or ''.join(secrets.choice(ALPHABET) for _idx in range(100))
 
     def _translate(self, text, direction):
         return ''.join(
