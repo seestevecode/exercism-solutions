@@ -14,6 +14,7 @@ class Clock:
     def __str__(self):
         return f'{self.hour:02d}:{self.minute:02d}'
 
+    # pylint: disable=eq-without-hash
     def __eq__(self, other):
         return (self.hour, self.minute) == (other.hour, other.minute)
 
