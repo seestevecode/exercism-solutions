@@ -1,8 +1,8 @@
 """Implement a clock that handles times without dates"""
 
-# pylint: disable=missing-function-docstring,missing-class-docstring
+# pylint: disable=missing-function-docstring
 
-class Clock:
+class Clock:  # pylint: disable=missing-class-docstring,eq-without-hash
     def __init__(self, hour, minute):
         raw_minutes = (hour * 60 + minute) % (24 * 60)
         self.hour = raw_minutes // 60
@@ -13,8 +13,7 @@ class Clock:
 
     def __str__(self):
         return f'{self.hour:02d}:{self.minute:02d}'
-
-    # pylint: disable=eq-without-hash
+    
     def __eq__(self, other):
         return (self.hour, self.minute) == (other.hour, other.minute)
 
