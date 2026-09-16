@@ -1,6 +1,7 @@
 """Refactor a tree building algorithm"""
 
 # pylint: disable=missing-function-docstring,missing-class-docstring
+# pylint: disable=too-few-public-methods
 
 class Record:
     def __init__(self, record_id, parent_id):
@@ -14,6 +15,7 @@ class Node:
         self.children = []
 
 
+# pylint: disable=invalid-name
 def BuildTree(records):
     if not records:
         return None
