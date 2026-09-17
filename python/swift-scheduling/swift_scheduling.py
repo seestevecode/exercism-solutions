@@ -50,7 +50,7 @@ def delivery_date(start, description):
         due_date = previous_workday(date(next_year, next_month, 1) - timedelta(days=1))
         due_dt = datetime.combine(due_date, time(hour=8))
 
-    else:  # shouldn't ever be reached
-        due_dt = start_dt
+    else:
+        raise ValueError('invalid delivery description')
 
     return due_dt.isoformat()
