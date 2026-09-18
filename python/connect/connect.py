@@ -1,8 +1,8 @@
 """Compute the result for a game of Hex/Polygon"""
 
-# pylint: disable=missing-function-docstring,missing-class-docstring
+# pylint: disable=missing-function-docstring
 
-class ConnectGame:
+class ConnectGame:  # pylint: disable=missing-class-docstring,too-few-public-methods
     OFFSETS = (
         (-1,  0), (-1, 1),
         ( 0, -1), ( 0, 1),
